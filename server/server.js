@@ -1,9 +1,8 @@
 ﻿var express = require('express')
-var rewrite = require('express-urlrewrite')
 var path = require('path')
 var app = express()
 var logger = require('morgan');
-var fs=require("fs");
+var opn = require("opn");
 
 var onFinished = require('on-finished')
 app.use(logger('dev'));
@@ -21,5 +20,6 @@ app.use(express.static(path.join(__dirname, '../build')))
 
 app.listen(3001, function () {
   console.log('Server listening on http://localhost:3001, Ctrl+C to stop')
+  opn('http://localhost:3001')
 })
 
